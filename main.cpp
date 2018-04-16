@@ -85,6 +85,7 @@ public:
 		skybox->SetModel(cache->GetResource<Model>("Models/Box.mdl"));
 		skybox->SetMaterial(cache->GetResource<Material>("Materials/Skybox.xml"));
 		
+		// Init grid for surfaces		
 		StaticModelGroup* group = new StaticModelGroup(context_);
 		for (int i = 0; i < res*res; i++)
 		{
