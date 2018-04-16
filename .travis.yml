@@ -1,4 +1,4 @@
-: {name: RPI-CI, active: yes}
+branch: {name: RPI-CI, active: yes}
 language: cpp
 compiler: gcc
 cache:
