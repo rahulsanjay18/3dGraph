@@ -230,15 +230,23 @@ public:
         Input* input=GetSubsystem<Input>();
         //if(input->GetQualifierDown(1))  // 1 is shift, 2 is ctrl, 4 is alt
         MOVE_SPEED/=10;
-        if(input->GetKeyDown('W'))
-            cameraNode_->Translate(Vector3(0,0, 1)*MOVE_SPEED*timeStep);
-        if(input->GetKeyDown('S'))
-            cameraNode_->Translate(Vector3(0,0,-1)*MOVE_SPEED*timeStep);
-        if(input->GetKeyDown('A'))
-            cameraNode_->Translate(Vector3(-1,0,0)*MOVE_SPEED*timeStep);
-        if(input->GetKeyDown('D'))
-            cameraNode_->Translate(Vector3( 1,0,0)*MOVE_SPEED*timeStep);
+        if(input->GetKeyDown('W')){
+            cameraNodes[0]->Translate(Vector3(0,0, 1)*MOVE_SPEED*timeStep); 
+            cameraNodes[1]->Translate(Vector3(0,0, 1)*MOVE_SPEED*timeStep);
+            cameraNodes[2]->Translate(Vector3(0,0, 1)*MOVE_SPEED*timeStep);
+            cameraNodes[3]->Translate(Vector3(0,0, 1)*MOVE_SPEED*timeStep);	
+        }
+	if(input->GetKeyDown('S')){
+            cameraNodes[0]->Translate(Vector3(0,0, -1)*MOVE_SPEED*timeStep); 
+            cameraNodes[1]->Translate(Vector3(0,0, -1)*MOVE_SPEED*timeStep);
+            cameraNodes[2]->Translate(Vector3(0,0, -1)*MOVE_SPEED*timeStep);
+            cameraNodes[3]->Translate(Vector3(0,0, -1)*MOVE_SPEED*timeStep);
+	}
 
+       // if(input->GetKeyDown(KEY_UP)){
+	    
+//	}
+	    
     }
   
     void HandlePostUpdate(StringHash eventType,VariantMap& eventData)
