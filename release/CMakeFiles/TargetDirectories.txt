@@ -1,7 +1,0 @@
-/home/rahul/Documents/3dGraph/release/CMakeFiles/install.dir
-/home/rahul/Documents/3dGraph/release/CMakeFiles/list_install_components.dir
-/home/rahul/Documents/3dGraph/release/CMakeFiles/rebuild_cache.dir
-/home/rahul/Documents/3dGraph/release/CMakeFiles/install/strip.dir
-/home/rahul/Documents/3dGraph/release/CMakeFiles/install/local.dir
-/home/rahul/Documents/3dGraph/release/CMakeFiles/3dGrapher.dir
-/home/rahul/Documents/3dGraph/release/CMakeFiles/edit_cache.dir
