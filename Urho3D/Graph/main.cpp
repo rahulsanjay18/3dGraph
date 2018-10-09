@@ -242,7 +242,17 @@ public:
             cameraNodes[2]->Translate(Vector3(0,0, -1)*MOVE_SPEED*timeStep);
             cameraNodes[3]->Translate(Vector3(0,0, -1)*MOVE_SPEED*timeStep);
 	}
-
+	float step = 2.0f / res;
+        float t = time_;
+        for (int z = 0, i = 0; z < res; z++)
+        {
+        	float v = (z + 0.5f) * step - 1.0f;
+                for (int x = 0; x < res; x++, i++)
+                {
+                	float u = (x + 0.5f) * step - 1.0f;
+                        grid[i]->SetPosition(Torus(u, v, t));
+                }
+        }
        // if(input->GetKeyDown(KEY_UP)){
 	    
 //	}
