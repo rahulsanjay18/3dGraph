@@ -1,5 +1,9 @@
-<material>
-    <technique name="Techniques/DiffSkybox.xml" />
-    <texture unit="diffuse" name="Textures/Skybox.xml" />
-    <cull value="none" />
-</material>
+<cubemap>
+    <face name="Black.dds" />
+    <face name="Black.dds" />
+    <face name="Black.dds" />
+    <face name="Black.dds" />    
+    <face name="Black.dds" />
+    <face name="Black.dds" />
+    <quality low="0" />
+</cubemap>

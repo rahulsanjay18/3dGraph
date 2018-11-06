@@ -1,11 +1,10 @@
-[Mon Nov  5 23:18:10 2018] INFO: Opened log file Urho3D.log
-[Mon Nov  5 23:18:10 2018] INFO: Created 3 worker threads
-[Mon Nov  5 23:18:10 2018] INFO: Added resource path /home/schuler001/Git/3dGraph/graph/bin/Data/
-[Mon Nov  5 23:18:10 2018] INFO: Added resource path /home/schuler001/Git/3dGraph/graph/bin/CoreData/
-[Mon Nov  5 23:18:10 2018] INFO: Adapter used NVIDIA Corporation GeForce GTX 1060 with Max-Q Design/PCIe/SSE2
-[Mon Nov  5 23:18:10 2018] INFO: Set screen mode 1280x720 windowed monitor 0 resizable
-[Mon Nov  5 23:18:10 2018] INFO: Initialized input
-[Mon Nov  5 23:18:10 2018] INFO: Initialized user interface
-[Mon Nov  5 23:18:10 2018] INFO: Initialized renderer
-[Mon Nov  5 23:18:10 2018] INFO: Set audio mode 44100 Hz stereo interpolated
-[Mon Nov  5 23:18:10 2018] INFO: Initialized engine
+[Tue Oct  9 11:42:05 2018] INFO: Opened log file Urho3D.log
+[Tue Oct  9 11:42:05 2018] INFO: Created 3 worker threads
+[Tue Oct  9 11:42:05 2018] INFO: Added resource path /home/pi/Desktop/3dGraph/Urho3D/Graph/bin/Data/
+[Tue Oct  9 11:42:05 2018] INFO: Added resource path /home/pi/Desktop/3dGraph/Urho3D/Graph/bin/CoreData/
+[Tue Oct  9 11:42:05 2018] INFO: Set screen mode 1280x720 windowed monitor 0 resizable
+[Tue Oct  9 11:42:05 2018] INFO: Initialized input
+[Tue Oct  9 11:42:05 2018] INFO: Initialized user interface
+[Tue Oct  9 11:42:05 2018] INFO: Initialized renderer
+[Tue Oct  9 11:42:05 2018] INFO: Set audio mode 44100 Hz stereo interpolated
+[Tue Oct  9 11:42:05 2018] INFO: Initialized engine
