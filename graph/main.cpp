@@ -35,11 +35,12 @@ class MyApp : public Application
 {
 public:
     int framecount_;
+	int cameraRadius = 3;
     float time_=0;
     SharedPtr<Text> text_;
     SharedPtr<Scene> scene_;
     SharedPtr<Node> boxNode_;
-	static const int res = 100;
+	static const int res = 144;
 	Node* lines[res];
 	StaticModel* objects[res];
 	Node* grid[res*res];
@@ -111,17 +112,10 @@ public:
 			camera->SetFarClip(2000);
 		}
 
-		cameraNodes[0]->Translate(Vector3(0, 0, -2));
-		cameraNodes[1]->Translate(Vector3(-3, 0, 0));
-		cameraNodes[2]->Translate(Vector3(0, 0, 2));
-		cameraNodes[3]->Translate(Vector3(3, 0, 0));
-		cameraNodes[0]->SetDirection(Vector3::FORWARD);
-		cameraNodes[1]->SetDirection(Vector3::RIGHT);
-		cameraNodes[2]->SetDirection(Vector3::BACK);
-		cameraNodes[3]->SetDirection(Vector3::LEFT);
-		cameraNodes[1]->Roll(90);
-		cameraNodes[2]->Roll(180);
-		cameraNodes[3]->Roll(270);
+		cameraNodes[0]->Translate(Vector3(0, 0, -cameraRadius));
+		cameraNodes[1]->Translate(Vector3(-cameraRadius, 0, 0));
+		cameraNodes[2]->Translate(Vector3(0, 0, cameraRadius));
+		cameraNodes[3]->Translate(Vector3(cameraRadius, 0, 0));
 		
 		renderer = GetSubsystem<Renderer>();
 		/*Layout of everything(camera, viewports, etc.)
@@ -219,7 +213,7 @@ public:
     */
     void HandleUpdate(StringHash eventType,VariantMap& eventData)
     {
-        float timeStep=eventData[Update::P_TIMESTEP].GetFloat();
+    	float timeStep=eventData[Update::P_TIMESTEP].GetFloat();
         framecount_++;
         time_+=timeStep;
         // Movement speed as world units per second
@@ -230,19 +224,64 @@ public:
         Input* input=GetSubsystem<Input>();
         //if(input->GetQualifierDown(1))  // 1 is shift, 2 is ctrl, 4 is alt
         MOVE_SPEED/=10;
+		if(input->GetKeyDown(KEY_Q)){
+			cameraNodes[0]->Translate(Vector3(0,0,1)*MOVE_SPEED*timeStep); 
+            cameraNodes[1]->Translate(Vector3(0,0,1)*MOVE_SPEED*timeStep);
+            cameraNodes[2]->Translate(Vector3(0,0,1)*MOVE_SPEED*timeStep);
+            cameraNodes[3]->Translate(Vector3(0,0,1)*MOVE_SPEED*timeStep);
+		}
+		if(input->GetKeyDown(KEY_E)){
+			cameraNodes[0]->Translate(Vector3(0,0,-1)*MOVE_SPEED*timeStep); 
+            cameraNodes[1]->Translate(Vector3(0,0,-1)*MOVE_SPEED*timeStep);
+            cameraNodes[2]->Translate(Vector3(0,0,-1)*MOVE_SPEED*timeStep);
+            cameraNodes[3]->Translate(Vector3(0,0,-1)*MOVE_SPEED*timeStep);
+		}
         if(input->GetKeyDown(KEY_W)){
-            cameraNodes[0]->Translate(Vector3(0,0, 1)*MOVE_SPEED*timeStep); 
-            cameraNodes[1]->Translate(Vector3(0,0, 1)*MOVE_SPEED*timeStep);
-            cameraNodes[2]->Translate(Vector3(0,0, 1)*MOVE_SPEED*timeStep);
-            cameraNodes[3]->Translate(Vector3(0,0, 1)*MOVE_SPEED*timeStep);	
+    		cameraNodes[0]->SetPosition(-(Quaternion(1,0,0) * -cameraNodes[0]->GetWorldPosition()));
+    		cameraNodes[1]->SetPosition(-(Quaternion(0,0,1) * -cameraNodes[1]->GetWorldPosition()));
+    		cameraNodes[2]->SetPosition(-(Quaternion(1,0,0) * -cameraNodes[2]->GetWorldPosition()));
+    		cameraNodes[3]->SetPosition(-(Quaternion(0,0,1) * -cameraNodes[3]->GetWorldPosition()));
         }
-	if(input->GetKeyDown(KEY_S)){
-            cameraNodes[0]->Translate(Vector3(0,0, -1)*MOVE_SPEED*timeStep); 
-            cameraNodes[1]->Translate(Vector3(0,0, -1)*MOVE_SPEED*timeStep);
-            cameraNodes[2]->Translate(Vector3(0,0, -1)*MOVE_SPEED*timeStep);
-            cameraNodes[3]->Translate(Vector3(0,0, -1)*MOVE_SPEED*timeStep);
-	}
-	float step = 2.0f / res;
+		if(input->GetKeyDown(KEY_S)){
+    		cameraNodes[0]->SetPosition(-(Quaternion(-1,0,0) * -cameraNodes[0]->GetWorldPosition()));
+    		cameraNodes[1]->SetPosition(-(Quaternion(0,0,-1) * -cameraNodes[1]->GetWorldPosition()));
+    		cameraNodes[2]->SetPosition(-(Quaternion(-1,0,0) * -cameraNodes[2]->GetWorldPosition()));
+    		cameraNodes[3]->SetPosition(-(Quaternion(0,0,-1) * -cameraNodes[3]->GetWorldPosition()));
+		}
+		if(input->GetKeyDown(KEY_A)){
+    		cameraNodes[0]->SetPosition(-(Quaternion(0,1,0) * -cameraNodes[0]->GetWorldPosition()));
+    		cameraNodes[1]->SetPosition(-(Quaternion(0,1,0) * -cameraNodes[1]->GetWorldPosition()));
+    		cameraNodes[2]->SetPosition(-(Quaternion(0,1,0) * -cameraNodes[2]->GetWorldPosition()));
+    		cameraNodes[3]->SetPosition(-(Quaternion(0,1,0) * -cameraNodes[3]->GetWorldPosition()));
+		}
+		if(input->GetKeyDown(KEY_D)){
+    		cameraNodes[0]->SetPosition(-(Quaternion(0,-1,0) * -cameraNodes[0]->GetWorldPosition()));
+    		cameraNodes[1]->SetPosition(-(Quaternion(0,-1,0) * -cameraNodes[1]->GetWorldPosition()));
+    		cameraNodes[2]->SetPosition(-(Quaternion(0,-1,0) * -cameraNodes[2]->GetWorldPosition()));
+    		cameraNodes[3]->SetPosition(-(Quaternion(0,-1,0) * -cameraNodes[3]->GetWorldPosition()));
+		}
+		cameraNodes[0]->LookAt(Vector3(0,0,0));
+		cameraNodes[1]->LookAt(Vector3(0,0,0));
+		cameraNodes[2]->LookAt(Vector3(0,0,0));
+		cameraNodes[3]->LookAt(Vector3(0,0,0));
+		cameraNodes[1]->Roll(90);
+		cameraNodes[2]->Roll(180);
+		cameraNodes[3]->Roll(270);
+		/* This code treats the camera as a player and rotates around the camera's axis
+		   Included incase it is to be used at a later date
+		if(input->GetKeyDown(KEY_A)){
+			cameraNodes[0]->Rotate(Quaternion(-1,Vector3(0,1,0))*MOVE_SPEED*timeStep);
+            cameraNodes[1]->Rotate(Quaternion(-1,Vector3(0,1,0))*MOVE_SPEED*timeStep);
+            cameraNodes[2]->Rotate(Quaternion(-1,Vector3(0,1,0))*MOVE_SPEED*timeStep);
+            cameraNodes[3]->Rotate(Quaternion(-1,Vector3(0,1,0))*MOVE_SPEED*timeStep);
+		}
+		if(input->GetKeyDown(KEY_D)){
+			cameraNodes[0]->Rotate(Quaternion(1,Vector3(0,1,0))*MOVE_SPEED*timeStep); 
+            cameraNodes[1]->Rotate(Quaternion(1,Vector3(0,1,0))*MOVE_SPEED*timeStep);
+            cameraNodes[2]->Rotate(Quaternion(1,Vector3(0,1,0))*MOVE_SPEED*timeStep);
+            cameraNodes[3]->Rotate(Quaternion(1,Vector3(0,1,0))*MOVE_SPEED*timeStep);
+		}*/
+		/*float step = 2.0f / res;
         float t = time_;
         for (int z = 0, i = 0; z < res; z++)
         {
@@ -252,11 +291,7 @@ public:
                 	float u = (x + 0.5f) * step - 1.0f;
                         grid[i]->SetPosition(Torus(u, v, t));
                 }
-        }
-       // if(input->GetKeyDown(KEY_UP)){
-	    
-//	}
-	    
+        }*/
     }
   
     void HandlePostUpdate(StringHash eventType,VariantMap& eventData)
