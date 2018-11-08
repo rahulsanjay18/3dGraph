@@ -29,6 +29,7 @@ class CameraObject{
         static void setRenderer(Renderer*);
         static void setScene(Scene*);
         CameraObject();
+        ~CameraObject();
         CameraObject(IntRect*, CameraAngle*);
         void initialize();
 };
