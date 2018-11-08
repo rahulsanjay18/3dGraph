@@ -9,8 +9,8 @@ using namespace Urho3D;
 /**
  *
  */
-GrapherView::GrapherView(Urho3D::Renderer* renderer, Urho3D::Context* context) :
-AbstractView(renderer, context)
+GrapherView::GrapherView(Urho3D::Renderer* renderer, Urho3D::Scene* scene) :
+AbstractView(renderer, scene)
 {
 }
 

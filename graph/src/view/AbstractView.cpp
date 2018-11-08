@@ -1,10 +1,10 @@
 #include "AbstractView.h"
 #include <Urho3D/Graphics/Renderer.h>
-#include <Urho3D/Core/Context.h>
+#include <Urho3D/Scene/Scene.h>
 
-AbstractView::AbstractView(Urho3D::Renderer* renderer, Urho3D::Context* context){
+AbstractView::AbstractView(Urho3D::Renderer* renderer, Urho3D::Scene* scene){
     this->renderer = renderer;
-    this->scene = new Urho3D::Scene(context);
+    this->scene = scene;
 }
 
 Urho3D::Renderer* AbstractView::getRenderer(){

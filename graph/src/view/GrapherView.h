@@ -22,7 +22,7 @@ class GrapherView : public AbstractView{
 		virtual void handleInputs();
 		virtual void setUpDisplay();
 	public:
-		GrapherView(Urho3D::Renderer*, Urho3D::Context*);
+		GrapherView(Urho3D::Renderer*, Urho3D::Scene*);
 		~GrapherView();
 		void display();
 };
