@@ -40,7 +40,7 @@ public:
     SharedPtr<Text> text_;
     SharedPtr<Scene> scene_;
     SharedPtr<Node> boxNode_;
-	static const int res = 144;
+	static const int res = 32;
 	Node* lines[res];
 	StaticModel* objects[res];
 	Node* grid[res*res];
@@ -138,15 +138,24 @@ public:
 		renderer->SetViewport(3, viewports[3]);
 
 		{
-			Node* lightNode = scene_->CreateChild();
-			lightNode->SetDirection(Vector3::FORWARD);
-			lightNode->Yaw(50);     // horizontal
-			lightNode->Pitch(10);   // vertical
-			Light* light = lightNode->CreateComponent<Light>();
-			light->SetLightType(LIGHT_DIRECTIONAL);
-			light->SetBrightness(1.6);
-			light->SetColor(Color(1.0, .6, 0.3, 1));
-			light->SetCastShadows(true);
+			Node* lightNode1 = scene_->CreateChild();
+			lightNode1->SetDirection(Vector3::FORWARD);
+			lightNode1->Yaw(50);     // horizontal
+			lightNode1->Pitch(10);   // vertical
+			Light* light1 = lightNode1->CreateComponent<Light>();
+			light1->SetLightType(LIGHT_DIRECTIONAL);
+			light1->SetBrightness(1.6);
+			light1->SetColor(Color(1.0, .6, 0.3, 1));
+			light1->SetCastShadows(true);
+			Node* lightNode2 = scene_->CreateChild();
+			lightNode2->SetDirection(Vector3::FORWARD);
+			lightNode2->Yaw(-50);     // horizontal
+			lightNode2->Pitch(-10);   // vertical
+			Light* light2 = lightNode2->CreateComponent<Light>();
+			light2->SetLightType(LIGHT_DIRECTIONAL);
+			light2->SetBrightness(1.6);
+			light2->SetColor(Color(1.0, .6, 0.3, 1));
+			light2->SetCastShadows(true);
 		}
 
 		float step = 2.0f / res;
@@ -157,7 +166,7 @@ public:
 			for (int x = 0; x < res; x++, i++)
 			{
 				float u = (x + 0.5f) * step - 1.0f;
-				grid[i]->SetPosition(Torus(u, v, t));
+				grid[i]->SetPosition(Ripple(u, v, t));
 			}
 		}
 		SubscribeToEvent(E_BEGINFRAME, URHO3D_HANDLER(MyApp, HandleBeginFrame));
@@ -220,7 +229,6 @@ public:
         float MOVE_SPEED=10.0f;
         // Mouse sensitivity as degrees per M_PIxel
         const float MOUSE_SENSITIVITY=0.1f;
-
         Input* input=GetSubsystem<Input>();
         //if(input->GetQualifierDown(1))  // 1 is shift, 2 is ctrl, 4 is alt
         MOVE_SPEED/=10;
@@ -281,7 +289,7 @@ public:
             cameraNodes[2]->Rotate(Quaternion(1,Vector3(0,1,0))*MOVE_SPEED*timeStep);
             cameraNodes[3]->Rotate(Quaternion(1,Vector3(0,1,0))*MOVE_SPEED*timeStep);
 		}*/
-		/*float step = 2.0f / res;
+		float step = 2.0f / res;
         float t = time_;
         for (int z = 0, i = 0; z < res; z++)
         {
@@ -289,9 +297,9 @@ public:
                 for (int x = 0; x < res; x++, i++)
                 {
                 	float u = (x + 0.5f) * step - 1.0f;
-                        grid[i]->SetPosition(Torus(u, v, t));
+                        grid[i]->SetPosition(Ripple(u, v, t));
                 }
-        }*/
+        }
     }
   
     void HandlePostUpdate(StringHash eventType,VariantMap& eventData)
