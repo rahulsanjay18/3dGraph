@@ -1,4 +1,3 @@
-<!--Cornell Cup Project.docx-->
 
 #PSU IEEE Cornell Cup Homepage
 
