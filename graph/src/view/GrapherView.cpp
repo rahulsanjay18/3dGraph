@@ -70,5 +70,6 @@ GrapherView::~GrapherView(){
 	//Handle potential memory leaks here
 	delete[] cameraAngles;
 	delete[] cameraObjects;
+	delete[] rect;
 	//delete lightNode;
 }

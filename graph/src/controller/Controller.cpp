@@ -78,12 +78,11 @@ public:
 	virtual void Start()
 	{
 	    renderer = GetSubsystem<Renderer>();
-	    view = new GrapherView(renderer, context_);
 		cache = GetSubsystem<ResourceCache>();
 		// Let's use the default style that comes with Urho3D.
 		GetSubsystem<UI>()->GetRoot()->SetDefaultStyle(cache->GetResource<XMLFile>("UI/DefaultStyle.xml"));
-		scene_ = view->getScene();
 		// Let the scene have an Octree component!
+		scene_ = new Scene(context_);
 		scene_->CreateComponent<Octree>();
 		// Let's add an additional scene component for fun.
 		scene_->CreateComponent<DebugRenderer>();
@@ -109,7 +108,9 @@ public:
 			surface[i]->SetCastShadows(false);
 			group->AddInstanceNode(grid[i]);
 		}
+		view = new GrapherView(renderer, scene_);
 		view->display();
+
         /*
 		float step = 2.0f / res;
 		float t = time_;

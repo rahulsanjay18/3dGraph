@@ -34,3 +34,7 @@ void CameraObject::initialize(){
     setUpCamera();
     setUpViewPort();
 }
+
+CameraObject::~CameraObject(){
+    delete viewport;
+}
