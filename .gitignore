@@ -1,4 +1,7 @@
+#Output and generated files
 ./graph/CMakeCache.txt
 ./graph/Makefile
 ./graph/bin/UrhoGrapher
 ./graph/CMakeFiles/
+./graph/Urho3D.log
+./graph/bin/Urho3D.log
