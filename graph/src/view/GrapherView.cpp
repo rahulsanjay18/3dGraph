@@ -61,7 +61,7 @@ void GrapherView::setUpDisplay(){
  *
  */
 void GrapherView::display(){
-	handleInputs();
+	//handleInputs();
 	setUpLighting();
 	setUpDisplay();
 };

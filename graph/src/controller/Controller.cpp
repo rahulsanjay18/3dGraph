@@ -35,13 +35,14 @@
 #include "../view/CameraObject.h"
 #include "../view/AbstractView.h"
 #include "../view/GrapherView.h"
+#include "GraphGenerator.h"
 
 using namespace Urho3D;
 
 class Controller : public Application
 {
 public:
-	AbstractView* view;
+    AbstractView* view;
     int framecount_;
     float time_=0;
     //SharedPtr<Text> text_;
@@ -77,7 +78,7 @@ public:
 
 	virtual void Start()
 	{
-	    renderer = GetSubsystem<Renderer>();
+      	        renderer = GetSubsystem<Renderer>();
 		cache = GetSubsystem<ResourceCache>();
 		// Let's use the default style that comes with Urho3D.
 		GetSubsystem<UI>()->GetRoot()->SetDefaultStyle(cache->GetResource<XMLFile>("UI/DefaultStyle.xml"));

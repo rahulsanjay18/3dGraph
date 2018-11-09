@@ -19,8 +19,8 @@ class GrapherView : public AbstractView{
 		void setUpLighting();
 		//void setUpBackground();
 	protected:
-		virtual void handleInputs();
-		virtual void setUpDisplay();
+		//virtual void handleInputs();
+		void setUpDisplay();
 	public:
 		GrapherView(Urho3D::Renderer*, Urho3D::Scene*);
 		~GrapherView();
