@@ -12,7 +12,7 @@ class AbstractView{
 	    Urho3D::Renderer* renderer;
 	    Urho3D::Scene* scene;
 	protected:
-		virtual void handleInputs() =0;
+		//virtual void handleInputs() =0;
 		virtual void setUpDisplay() =0;
 		AbstractView(Urho3D::Renderer*, Urho3D::Scene*);
 	public:

@@ -14,8 +14,8 @@ class GrapherView : public AbstractView{
 		Node* lightNode;
 		void setUpCameraAngles();
 		void setUpViewRects();
-		void setUpCamera(int);
-		void setUpViewPort(int);
+		//void setUpCamera(int);
+		//void setUpViewPort(int);
 		void setUpLighting();
 		//void setUpBackground();
 	protected:
