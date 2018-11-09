@@ -10,3 +10,7 @@ AbstractView::AbstractView(Urho3D::Renderer* renderer, Urho3D::Scene* scene){
 Urho3D::Renderer* AbstractView::getRenderer(){
     return renderer;
 }
+
+Urho3D::Scene* AbstractView::getScene(){
+    return scene;
+}

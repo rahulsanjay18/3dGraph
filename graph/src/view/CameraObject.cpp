@@ -15,7 +15,7 @@ void CameraObject::setRenderer(Renderer* renderer){
 }
 
 void CameraObject::setScene(Scene* scene){
-    scene_ = scene;
+    CameraObject::scene_ = scene;
 }
 
 void CameraObject::setUpCamera(){
@@ -29,7 +29,7 @@ void CameraObject::setUpCamera(){
 
 void CameraObject::setUpViewPort(){
     //Potential issue
-	viewport = new Viewport(CameraObject::scene_->GetContext(), scene_, cameraNode->GetComponent<Camera>(), *rect);
+	viewport = new Viewport(CameraObject::scene_->GetContext(), CameraObject::scene_, cameraNode->GetComponent<Camera>(), *rect);
 	renderer->SetViewport(cameraAngle->getId(), viewport);
 }
 
