@@ -1,9 +1,11 @@
 #include "CameraObject.h"
 #include <Urho3D/Scene/Scene.h>
+#include <Urho3D/Graphics/Renderer.h>
 
 using namespace Urho3D;
 
 Scene* CameraObject::scene_;
+Renderer* CameraObject::renderer;
 
 CameraObject::CameraObject(IntRect* rect, CameraAngle* angle){
     this->rect = rect;
