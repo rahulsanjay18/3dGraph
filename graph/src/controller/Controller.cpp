@@ -109,6 +109,7 @@ public:
 			surface[i]->SetCastShadows(false);
 			group->AddInstanceNode(grid[i]);
 		}
+		/*
 		view = new GrapherView(renderer, scene_);
 		view->display();
 
@@ -123,14 +124,14 @@ public:
 				float u = (x + 0.5f) * step - 1.0f;
 				grid[i]->SetPosition(Torus(u, v, t));
 			}
-		}
+		}*/
         SubscribeEvents();
     }
 
     virtual void Stop()
     {
 		//Avoid memory leaks by explicitly deleting pointers
-		delete view;
+		//delete view;
     }
 
     /**
