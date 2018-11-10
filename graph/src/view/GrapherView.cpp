@@ -3,6 +3,7 @@
 #include <Urho3D/Core/Context.h>
 #include <Urho3D/Graphics/Renderer.h>
 #include <Urho3D/Scene/Node.h>
+#include <iostream> //todo: delete later
 
 using namespace Urho3D;
 
@@ -54,6 +55,7 @@ void GrapherView::setUpDisplay(){
 	for (int i = 0; i < 4; i++){
 		cameraObjects[i] = new CameraObject(rect[i], cameraAngles[i]);
 		cameraObjects[i]->initialize();
+		//Current issue is here ^ at CameraObject::initialize()
 	}
 }
 
