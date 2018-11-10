@@ -114,7 +114,7 @@ public:
 		view->display();
 
         ///Move to model or another part in the controller
-		/*
+		
 		float step = 2.0f / res;
 		float t = time_;
 		for (int z = 0, i = 0; z < res; z++)
@@ -125,7 +125,7 @@ public:
 				float u = (x + 0.5f) * step - 1.0f;
 				grid[i]->SetPosition(Torus(u, v, t));
 			}
-		}*/
+		}
         SubscribeEvents();
     }
 
