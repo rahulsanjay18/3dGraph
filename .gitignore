@@ -5,6 +5,7 @@
 ./graph/CMakeFiles/
 ./graph/Urho3D.log
 ./graph/bin/Urho3D.log
+./graph/bin/out
 *.cbp
 *.depend
 *.layout
