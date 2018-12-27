@@ -78,7 +78,7 @@ public:
 
 	virtual void Start()
 	{
-      	        renderer = GetSubsystem<Renderer>();
+        renderer = GetSubsystem<Renderer>();
 		cache = GetSubsystem<ResourceCache>();
 		// Let's use the default style that comes with Urho3D.
 		GetSubsystem<UI>()->GetRoot()->SetDefaultStyle(cache->GetResource<XMLFile>("UI/DefaultStyle.xml"));
@@ -109,12 +109,12 @@ public:
 			surface[i]->SetCastShadows(false);
 			group->AddInstanceNode(grid[i]);
 		}
-		
+
 		view = new GrapherView(renderer, scene_);
 		view->display();
 
         ///Move to model or another part in the controller
-		
+
 		float step = 2.0f / res;
 		float t = time_;
 		for (int z = 0, i = 0; z < res; z++)

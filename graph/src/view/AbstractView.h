@@ -1,5 +1,5 @@
-#ifndef VIEW_H_INCLUDED
-#define VIEW_H_INCLUDED
+#ifndef ABSTRACTVIEW_H_INCLUDED
+#define ABSTRACTVIEW_H_INCLUDED
 #include <Urho3D/Graphics/Renderer.h>
 #include <Urho3D/Scene/Scene.h>
 
