@@ -1,3 +1,5 @@
+#include "Functions.h"
+
 #include <sstream>
 #include <Urho3D/Math/Vector3.h>
 
