@@ -1,0 +1,1 @@
+PyObject * invokeFunc(int argc, char *argv[]);
