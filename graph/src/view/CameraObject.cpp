@@ -1,7 +1,6 @@
 #include "CameraObject.h"
 #include <Urho3D/Scene/Scene.h>
 #include <Urho3D/Graphics/Renderer.h>
-#include <iostream>
 
 using namespace Urho3D;
 
@@ -32,7 +31,6 @@ void CameraObject::setUpCamera(){
 
 void CameraObject::setUpViewPort(){
 	viewport = new Viewport(CameraObject::scene_->GetContext(), CameraObject::scene_, cameraNode->GetComponent<Camera>(), *rect);
-	//Segmentation fault here
 	renderer->SetViewport(cameraAngle->getId(), viewport);
 }
 
