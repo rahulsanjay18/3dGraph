@@ -1,4 +1,4 @@
-# Install script for directory: /home/schuler001/Git/3dGraph/graph
+# Install script for directory: /home/rahul/Documents/3dGraph/graph
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -44,7 +44,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/UrhoGrapher"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/schuler001/Git/3dGraph/graph/bin/UrhoGrapher")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/rahul/Documents/3dGraph/graph/bin/UrhoGrapher")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/UrhoGrapher" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/UrhoGrapher")
     if(CMAKE_INSTALL_DO_STRIP)
@@ -61,5 +61,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/schuler001/Git/3dGraph/graph/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/rahul/Documents/3dGraph/graph/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

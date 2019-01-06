@@ -1,9 +1,6 @@
-def multiply(a,b):
-	print("this gon do a * b")
+def multiply(s, num, fl):
+	print(s)
+	print(num)
+	print(fl)
 	
-	c = 0
-	
-	for i in range(0, a):
-		c= c+b
-	
-	return c
+	return "String returned!"

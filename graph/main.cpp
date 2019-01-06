@@ -1,5 +1,6 @@
 #include <string>
 #include <sstream>
+#include <iostream>
 
 #include <Urho3D/Core/CoreEvents.h>
 #include <Urho3D/Engine/Application.h>
@@ -68,6 +69,7 @@ public:
 
 	virtual void Start()
 	{
+		std::cout<<"Dis da rite 1"<<std::endl;
 		cache = GetSubsystem<ResourceCache>();
 
 		// Let's use the default style that comes with Urho3D.

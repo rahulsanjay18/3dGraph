@@ -1,12 +1,17 @@
 #include </usr/include/python3.6m/Python.h>
-
+#include <typeinfo>
+#include <iostream>
+#include <string>
 /* 
 argv[1] is the module name 
 argv[2] is function name
 arg[3+] the arguments
 */
-PyObject * invokeFunc(int argc, char *argv[])
-{
+PyObject * invokeFunc(int argc, char* types, string argv[])
+{	
+	for (int i = 0; i < 6; i++){
+		std::cout<<argv[i]<<" ";
+	}
     PyObject *pName, *pModule, *pFunc;
     PyObject *pArgs, *pValue;
     int i;
@@ -32,9 +37,20 @@ PyObject * invokeFunc(int argc, char *argv[])
 
         if (pFunc && PyCallable_Check(pFunc)) {
             pArgs = PyTuple_New(argc - 3);
-            for (i = 0; i < argc - 3; ++i) {
-                pValue = PyLong_FromLong(atoi(argv[i + 3]));
+            for (i = 0; i < argc - 3; i++) {
+				//std::cout<<argv[i + 3]<<"\n";
 				
+				switch(types[i]){
+					case 'i': pValue = PyLong_FromLong(stoi(argv[i + 3])); 
+						break;
+					case 'b': pValue = PyBool_FromLong(stoi(argv[i + 3]));
+						break;
+					case 'f': pValue =  PyFloat_FromDouble(stof(argv[i + 3]));
+						break;
+					case 's': pValue = PyUnicode_Decode(argv[i+3], sizeof(argv[i+3])/sizeof(argv[1]), "utf-8", "strict");
+						break;
+					default: pValue = 0;
+				}
 				
                 if (!pValue) {
                     Py_DECREF(pArgs);
