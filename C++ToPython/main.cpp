@@ -11,7 +11,7 @@ int main(){
 
 	
 	string argv[] = {"", "multiply", "multiply", strin, std::to_string(num), std::to_string(point)};
-	int argc = sizeof(argv) / sizeof(char *);
+	int argc = sizeof(argv) / sizeof(argv[1]);
 	
 	PyObject* pyObject = invokeFunc(argc, types, argv);
 	
