@@ -8,19 +8,19 @@
 
 class GrapherView : public AbstractView{
 	private:
-		CameraAngle* cameraAngles[4];
+		CameraAngle* cameraAngles[4];           ///Contains camera angles and objects
 		CameraObject* cameraObjects[4];
-		IntRect* rect[4];
-		Node* lightNode;
-		void setUpCameraAngles();
+		IntRect* rect[4];                       ///Rectangular frames for view ports
+		Node* lightNode;                        ///Determines lighting for environment
+		void setUpCameraAngles();               ///Set ups for rectangular frames and camera angles
 		void setUpViewRects();
 		//void setUpCamera(int);
 		//void setUpViewPort(int);
-		void setUpLighting();
+		void setUpLighting();                   ///Set up lighting
 		//void setUpBackground();
 	protected:
 		//virtual void handleInputs();
-		void setUpDisplay();
+		void setUpDisplay();                    ///Initializes elements needed for display
 	public:
 		GrapherView(Urho3D::Renderer*, Urho3D::Scene*);
 		~GrapherView();

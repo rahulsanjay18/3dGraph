@@ -16,14 +16,14 @@ using namespace Urho3D;
 
 class CameraObject{
     private:
-        CameraAngle* cameraAngle;
-		SharedPtr<Node> cameraNode;
-		Camera* camera;
-		SharedPtr<Viewport> viewport;
-		IntRect* rect;
-		static Renderer* renderer;
-		static Scene* scene_;
-        void setUpCamera();
+        CameraAngle* cameraAngle;       ///Contains values for the camera angle
+		SharedPtr<Node> cameraNode;     ///Node to a camera
+		Camera* camera;                 ///Camera itself
+		SharedPtr<Viewport> viewport;   ///Viewport which to send the images to
+		IntRect* rect;                  ///Rectangular frame object
+		static Renderer* renderer;      ///Renderer
+		static Scene* scene_;           ///Scene
+        void setUpCamera();             ///Set up functions for camera and viewport
         void setUpViewPort();
     public:
         static void setRenderer(Renderer*);

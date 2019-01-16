@@ -43,22 +43,27 @@ using namespace Urho3D;
 class Controller : public Application
 {
 public:
-    AbstractView* view;
+    AbstractView* view;             //The View object from the MVC architecture; Handles the 4 cameras and renderers
     int framecount_;
-    float time_=0;
+    float time_=0;                  //Time variable
     //SharedPtr<Text> text_;
-    Scene* scene_;
+    Scene* scene_;                  //The object that stores the background scene of the program's environment
     //SharedPtr<Node> boxNode_;
-	static const int res = 100;
-	Node* grid[res*res];
-	StaticModel* surface[res*res];
-	ResourceCache* cache;
-	Renderer* renderer;
+	static const int res = 100;     //the number of cubes on one side of the square domain D
+	Node* grid[res*res];            //The grid of points to use to graph the 3D image on the center
+	StaticModel* surface[res*res];  //the object storing the surface of each cube
+	ResourceCache* cache;           //Cache object
+	Renderer* renderer;             //Object for rendering the image through the view
 
     Controller(Context * context) : Application(context),framecount_(0),time_(0)
     {
     }
 
+    /**
+     *  Subscribes all functions regarding the updating of the
+     *  application and rendering, frame beginning and ending,
+     *  and mouse and keyboard inputs
+     */
     void SubscribeEvents(){
         SubscribeToEvent(E_BEGINFRAME, URHO3D_HANDLER(Controller, HandleBeginFrame));
 		SubscribeToEvent(E_KEYDOWN, URHO3D_HANDLER(Controller, HandleKeyDown));
@@ -69,6 +74,11 @@ public:
 		SubscribeToEvent(E_ENDFRAME, URHO3D_HANDLER(Controller, HandleEndFrame));
     }
 
+    /**
+     * Setup function runs before the Start function
+     * Sets up window settings; window size 1280 x 720 pixels
+     *
+     */
     virtual void Setup()
     {
         engineParameters_["FullScreen"]=false;
@@ -77,6 +87,11 @@ public:
         engineParameters_["WindowResizable"]=true;
     }
 
+    /**
+     * Start initializes every object needed such as the view and model object,
+     * and also the cubes used to graph the 3D functions
+     *
+     */
 	virtual void Start()
 	{
         renderer = GetSubsystem<Renderer>();
@@ -111,12 +126,14 @@ public:
 			group->AddInstanceNode(grid[i]);
 		}
 
+		///Initialize the 4 cameras and renderers
 		view = new GrapherView(renderer, scene_);
 		view->display();
 
-        ///Move to model or another part in the controller
+        ///Initialize the singleton model object
         MVC::Model::initInstance();
 
+        ///give coordinates to each cube using a 3d function from the model function
 		float step = 2.0f / res;
 		float t = time_;
 		for (int z = 0, i = 0; z < res; z++)
@@ -131,6 +148,9 @@ public:
         SubscribeEvents();
     }
 
+    /**
+     * Add things to do before halting the program when user closes it.
+     */
     virtual void Stop()
     {
 		//Avoid memory leaks by explicitly deleting pointers
@@ -195,7 +215,7 @@ public:
             //cameraNodes[2]->Translate(Vector3(0,0, 1)*MOVE_SPEED*timeStep);
             //cameraNodes[3]->Translate(Vector3(0,0, 1)*MOVE_SPEED*timeStep);
         }
-	if(input->GetKeyDown(KEY_S)){
+        if(input->GetKeyDown(KEY_S)){
             //cameraNodes[0]->Translate(Vector3(0,0, -1)*MOVE_SPEED*timeStep);
             //cameraNodes[1]->Translate(Vector3(0,0, -1)*MOVE_SPEED*timeStep);
             //cameraNodes[2]->Translate(Vector3(0,0, -1)*MOVE_SPEED*timeStep);
