@@ -4,7 +4,9 @@
 #include "AbstractView.h"
 #include "CameraAngle.h"
 #include "CameraObject.h"
+#include "RotationDirection.h"
 #include <Urho3D/Math/Rect.h>
+#include <Urho3D/Math/Vector3.h>
 
 class GrapherView : public AbstractView{
 	private:
@@ -23,6 +25,8 @@ class GrapherView : public AbstractView{
 		void setUpDisplay();                    ///Initializes elements needed for display
 	public:
 		GrapherView(Urho3D::Renderer*, Urho3D::Scene*);
+		void rotation(RotationDirection);
+		void zoom(Vector3, float);
 		~GrapherView();
 		void display();
 };

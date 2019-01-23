@@ -35,6 +35,7 @@
 #include "../view/CameraObject.h"
 #include "../view/AbstractView.h"
 #include "../view/GrapherView.h"
+#include "../view/RotationDirection.h"
 #include "../model/Model.h"
 #include "GraphGenerator.h"
 
@@ -54,9 +55,23 @@ public:
 	StaticModel* surface[res*res];  //the object storing the surface of each cube
 	ResourceCache* cache;           //Cache object
 	Renderer* renderer;             //Object for rendering the image through the view
+	int** a;
+	RotationDirection *Q, *E, *W, *A, *S, *D;
 
     Controller(Context * context) : Application(context),framecount_(0),time_(0)
     {
+        int q[4][3] = {{0,0,1},{0,0,1},{0,0,1},{0,0,1}};
+        int e[4][3] = {{0,0,-1},{0,0,-1},{0,0,-1},{0,0,-1}};
+        int w[4][3] = {{1,0,0},{0,0,1},{1,0,0},{0,0,1}};
+        int a[4][3] = {{0,1,0},{0,1,0},{0,1,0},{0,1,0}};
+        int s[4][3] = {{-1,0,0},{0,0,-1},{-1,0,0},{0,0,-1}};
+        int d[4][3] = {{0,-1,0},{0,-1,0},{0,-1,0},{0,-1,0}};
+        Q = new RotationDirection("Q", q);
+        E = new RotationDirection("E", e);
+        W = new RotationDirection("W", w);
+        A = new RotationDirection("A", a);
+        S = new RotationDirection("S", s);
+        D = new RotationDirection("D", d);
     }
 
     /**
@@ -156,6 +171,12 @@ public:
 		//Avoid memory leaks by explicitly deleting pointers
 		MVC::Model::deleteInstance();
 		delete view;
+		delete Q;
+		delete E;
+		delete W;
+		delete A;
+		delete S;
+		delete D;
     }
 
     /**
@@ -209,17 +230,24 @@ public:
         Input* input=GetSubsystem<Input>();
         //if(input->GetQualifierDown(1))  // 1 is shift, 2 is ctrl, 4 is alt
         MOVE_SPEED/=10;
+		if(input->GetKeyDown(KEY_Q)){
+			view->zoom(Vector3(0,0,1), MOVE_SPEED*timeStep);
+		}
+		if(input->GetKeyDown(KEY_E)){
+            view->zoom(Vector3(0,0,-1), MOVE_SPEED*timeStep);
+		}
         if(input->GetKeyDown(KEY_W)){
-            //cameraNodes[0]->Translate(Vector3(0,0, 1)*MOVE_SPEED*timeStep);
-            //cameraNodes[1]->Translate(Vector3(0,0, 1)*MOVE_SPEED*timeStep);
-            //cameraNodes[2]->Translate(Vector3(0,0, 1)*MOVE_SPEED*timeStep);
-            //cameraNodes[3]->Translate(Vector3(0,0, 1)*MOVE_SPEED*timeStep);
+            view->rotation(*W);
         }
-        if(input->GetKeyDown(KEY_S)){
-            //cameraNodes[0]->Translate(Vector3(0,0, -1)*MOVE_SPEED*timeStep);
-            //cameraNodes[1]->Translate(Vector3(0,0, -1)*MOVE_SPEED*timeStep);
-            //cameraNodes[2]->Translate(Vector3(0,0, -1)*MOVE_SPEED*timeStep);
-            //cameraNodes[3]->Translate(Vector3(0,0, -1)*MOVE_SPEED*timeStep);
+		if(input->GetKeyDown(KEY_S)){
+		    view->rotation(*S);
+		}
+		if(input->GetKeyDown(KEY_A)){
+		    view->rotation(*A);
+		}
+		if(input->GetKeyDown(KEY_D)){
+		    view->rotation(*D);
+		}
 	}
 	/*
 	float step = 2.0f / res;
@@ -236,8 +264,6 @@ public:
        // if(input->GetKeyDown(KEY_UP)){
 
 //	}*/
-
-    }
 
     void HandlePostUpdate(StringHash eventType,VariantMap& eventData)
     {

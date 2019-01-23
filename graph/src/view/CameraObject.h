@@ -11,6 +11,7 @@
 #include <Urho3D/Scene/Node.h>
 #include <Urho3D/Math/Rect.h>
 #include <Urho3D/Container/Ptr.h>
+#include <Urho3D/Math/Vector3.h>
 
 using namespace Urho3D;
 
@@ -32,5 +33,7 @@ class CameraObject{
         ~CameraObject();
         CameraObject(IntRect*, CameraAngle*);
         void initialize();
+        void rotation(int, int, int, int);
+        void zoom(Vector3, float, int);
 };
 #endif // CAMERAOBJECT_H_INCLUDED

@@ -2,6 +2,8 @@
 #define ABSTRACTVIEW_H_INCLUDED
 #include <Urho3D/Graphics/Renderer.h>
 #include <Urho3D/Scene/Scene.h>
+#include <Urho3D/Math/Vector3.h>
+#include "RotationDirection.h"
 
 /**
  * Abstract class for user interface
@@ -21,6 +23,8 @@ class AbstractView{
 	    void setRenderer(Urho3D::Renderer*);
 	    //virtual View getInstance() =0;
 		virtual void display() =0;
+		virtual void rotation(RotationDirection) =0;
+		virtual void zoom(Vector3, float) =0;
 		//There may be more functions to add for view;
 };
 
