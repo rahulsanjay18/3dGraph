@@ -78,7 +78,7 @@ GrapherView::~GrapherView(){
 	//delete lightNode;
 }
 
-GrapherView::rotation(RotationDirection direction){
+void GrapherView::rotation(RotationDirection direction){
     for (int i = 0; i < 4; i++){
         cameraObjects[i]->rotation(direction->getElement(i, 0),
                                    direction->getElement(i, 1),
@@ -86,7 +86,7 @@ GrapherView::rotation(RotationDirection direction){
     }
 }
 
-GrapherView::zoom(Vector3 direction, float factor){
+void GrapherView::zoom(Vector3 direction, float factor){
     for (int i = 0; i < 4; i++){
         cameraObjects[i]->zoom(direction, factor, i);
     }

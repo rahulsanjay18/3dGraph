@@ -24,7 +24,7 @@ class AbstractView{
 	    //virtual View getInstance() =0;
 		virtual void display() =0;
 		virtual void rotation(RotationDirection) =0;
-		virtual void zoom(Vector3, float) =0;
+		virtual void zoom(Urho3D::Vector3, float) =0;
 		//There may be more functions to add for view;
 };
 

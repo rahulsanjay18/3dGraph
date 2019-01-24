@@ -15,5 +15,5 @@ int RotationDirection::getElement(int r, int c){
 }
 
 std::string RotationDirectiongetId(){
-    return id;
+    return this->id;
 }
