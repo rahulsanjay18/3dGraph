@@ -30,13 +30,13 @@
 #include <Urho3D/Graphics/Skybox.h>
 
 
-#include "../model/Functions.h"
 #include "../view/CameraAngle.h"
 #include "../view/CameraObject.h"
 #include "../view/AbstractView.h"
 #include "../view/GrapherView.h"
 #include "../model/Model.h"
-#include "GraphGenerator.h"
+
+#include <functional>
 
 using namespace Urho3D;
 
@@ -132,7 +132,7 @@ public:
 
         ///Initialize the singleton model object
         MVC::Model::initInstance();
-
+	MVC::Model::getInstance()->setFunction("Torus");
         ///give coordinates to each cube using a 3d function from the model function
 		float step = 2.0f / res;
 		float t = time_;
@@ -142,7 +142,11 @@ public:
 			for (int x = 0; x < res; x++, i++)
 			{
 				float u = (x + 0.5f) * step - 1.0f;
+				//Model* p = MVC::Model::getInstance();
+				//std::function<Vector3(float,float,float)  f = p->getFunction();
+				//Vector3 pos = f(u,v,t);
 				grid[i]->SetPosition(MVC::Model::getInstance()->getFunction()(u, v, t));
+				//grid[i]->SetPosition(pos);
 			}
 		}
         SubscribeEvents();
