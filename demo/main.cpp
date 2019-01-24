@@ -47,7 +47,7 @@ public:
     SharedPtr<Text> text_;
     SharedPtr<Scene> scene_;
     SharedPtr<Node> boxNode_;
-	static const int res = 32;
+	static const int res = 20;
 	Node* lines[res];
 	StaticModel* objects[res];
 	Node* grid[res*res];
