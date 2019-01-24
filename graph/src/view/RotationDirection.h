@@ -5,7 +5,7 @@
 
 class RotationDirection{
 private:
-    int** quaternions;
+    int *quaternions[3];
     std::string id;
 public:
     RotationDirection(std::string id, int[4][3]);
