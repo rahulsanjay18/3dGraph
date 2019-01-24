@@ -60,18 +60,18 @@ public:
 
     Controller(Context * context) : Application(context),framecount_(0),time_(0)
     {
-        int q[4][3] = {{0,0,1},{0,0,1},{0,0,1},{0,0,1}};
-        int e[4][3] = {{0,0,-1},{0,0,-1},{0,0,-1},{0,0,-1}};
-        int w[4][3] = {{1,0,0},{0,0,1},{1,0,0},{0,0,1}};
-        int a[4][3] = {{0,1,0},{0,1,0},{0,1,0},{0,1,0}};
-        int s[4][3] = {{-1,0,0},{0,0,-1},{-1,0,0},{0,0,-1}};
-        int d[4][3] = {{0,-1,0},{0,-1,0},{0,-1,0},{0,-1,0}};
-        Q = new RotationDirection("Q", q);
-        E = new RotationDirection("E", e);
-        W = new RotationDirection("W", w);
-        A = new RotationDirection("A", a);
-        S = new RotationDirection("S", s);
-        D = new RotationDirection("D", d);
+        //int q[4][3] = {{0,0,1},{0,0,1},{0,0,1},{0,0,1}};
+        //int e[4][3] = {{0,0,-1},{0,0,-1},{0,0,-1},{0,0,-1}};
+        //int w[4][3] = {{1,0,0},{0,0,1},{1,0,0},{0,0,1}};
+        //int a[4][3] = {{0,1,0},{0,1,0},{0,1,0},{0,1,0}};
+        //int s[4][3] = {{-1,0,0},{0,0,-1},{-1,0,0},{0,0,-1}};
+        //int d[4][3] = {{0,-1,0},{0,-1,0},{0,-1,0},{0,-1,0}};
+        //Q = new RotationDirection("Q", 0x41041);
+        //E = new RotationDirection("E", 0xc30c3);
+        W = new RotationDirection("W", 0x401401);
+        A = new RotationDirection("A", 0x104104);
+        S = new RotationDirection("S", 0xc03c03);
+        D = new RotationDirection("D", 0x30c30c);
     }
 
     /**
@@ -175,8 +175,8 @@ public:
 		//Avoid memory leaks by explicitly deleting pointers
 		MVC::Model::deleteInstance();
 		delete view;
-		delete Q;
-		delete E;
+		//delete Q;
+		//delete E;
 		delete W;
 		delete A;
 		delete S;

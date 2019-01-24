@@ -1,7 +1,14 @@
 
 #include <string>
 #include <sstream>
+#include <iostream>
 
+#include <iostream>
+#include <octave/oct.h>
+#include <octave/octave.h>
+#include <octave/parse.h>
+#include <octave/interpreter.h>
+#include "math.h"
 #include <Urho3D/Core/CoreEvents.h>
 #include <Urho3D/Engine/Application.h>
 #include <Urho3D/Engine/Engine.h>
@@ -29,6 +36,7 @@
 #include <Urho3D/Graphics/StaticModelGroup.h>
 #include <Urho3D/Graphics/Material.h>
 #include <Urho3D/Graphics/Skybox.h>
+
 #include "GraphGenerator.h"
 
 #include <fstream>
@@ -66,7 +74,8 @@ public:
     }
 
     virtual void Setup()
-    {
+    {	
+		math();
         engineParameters_["FullScreen"]=false;
         engineParameters_["WindowWidth"]=1280;
         engineParameters_["WindowHeight"]=720;
@@ -75,6 +84,7 @@ public:
 
 	virtual void Start()
 	{
+		
 		cache = GetSubsystem<ResourceCache>();
 
 		// Let's use the default style that comes with Urho3D.

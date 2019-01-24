@@ -80,9 +80,10 @@ GrapherView::~GrapherView(){
 
 void GrapherView::rotation(RotationDirection direction){
     for (int i = 0; i < 4; i++){
-        cameraObjects[i]->rotation(direction.getElement(i, 0),
-                                   direction.getElement(i, 1),
-                                   direction.getElement(i, 2), i);
+        int *values = direction.getCameraVals(i);
+        cameraObjects[i]->rotation(*(values),
+                                   *(values + 1),
+                                   *(values + 2));
     }
 }
 

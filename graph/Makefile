@@ -1,2 +1,0 @@
-./bin/out: ./src/controller/Controller.cpp ./src/view/*.cpp ./src/model/*.cpp
-	g++ -o ./bin/out ./src/controller/Controller.cpp ./src/view/*.cpp ./src/model/*.cpp -I/home/pi/Urho3D/include -I/home/pi/Urho3D/include/Urho3D/ThirdParty -I/usr/include -L/home/pi/Urho3D/lib -l Urho3D -l dl -pthread -lGL
