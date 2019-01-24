@@ -1,3 +1,4 @@
+
 #include <string>
 #include <sstream>
 
@@ -29,13 +30,19 @@
 #include <Urho3D/Graphics/Material.h>
 #include <Urho3D/Graphics/Skybox.h>
 #include "GraphGenerator.h"
+
+#include <fstream>
+#include <iostream>
+#include <string>
+#include <stdlib.h>
 using namespace Urho3D;
 
 class MyApp : public Application
 {
 public:
     int framecount_;
-	int cameraRadius = 3;
+    int graphNum = 0; //Graphnumber custom
+    int cameraRadius = 3;
     float time_=0;
     SharedPtr<Text> text_;
     SharedPtr<Scene> scene_;
@@ -123,10 +130,35 @@ public:
 		1		3
 			0
 		*/
-		IntRect rect0(400, 400, 800, 700);
-		IntRect rect1(100,150,400,550);
-		IntRect rect2(400, 0, 800, 300);
-		IntRect rect3(800, 150, 1100, 550);
+		std::ifstream myfile("/home/pi/Desktop/3dGraph/graph/rect.txt");
+		std::string line;
+		std::string lines[4];
+		//char *results;
+		int index = 0;
+		int nums[4][4] = {
+                	{400, 400, 800, 700},
+                        {100, 150, 400, 550},
+                        {400, 0, 800, 300},
+                        {800, 150, 1100, 550}
+                };
+		if (myfile.is_open()){
+			while(getline(myfile,line)){
+				lines[index] = line;
+				index++;
+			}
+			for (int i = 0; i < 4; i++){
+                        	char* stuffArr = (char*) lines[i].c_str();
+                        	nums[i][0] = atoi(strtok(stuffArr, " "));
+                                for (int j = 1; j < 4; j++){
+                        		nums[i][j] = atoi(strtok(NULL, " "));
+                                }
+                        }
+			myfile.close();
+		}
+		IntRect rect0(nums[0][0], nums[0][1], nums[0][2], nums[0][3]);
+		IntRect rect1(nums[1][0], nums[1][1], nums[1][2], nums[1][3]);
+		IntRect rect2(nums[2][0], nums[2][1], nums[2][2], nums[2][3]);
+		IntRect rect3(nums[3][0], nums[3][1], nums[3][2], nums[3][3]);
 
 		viewports[0] = new Viewport(context_, scene_, cameraNodes[0]->GetComponent<Camera>(), rect0);
 		viewports[1] = new Viewport(context_, scene_, cameraNodes[1]->GetComponent<Camera>(), rect1);
@@ -166,7 +198,8 @@ public:
 			for (int x = 0; x < res; x++, i++)
 			{
 				float u = (x + 0.5f) * step - 1.0f;
-				grid[i]->SetPosition(Ripple(u, v, t));
+				Vector3 nah(0,0,0);
+				grid[i]->SetPosition(nah);
 			}
 		}
 		SubscribeToEvent(E_BEGINFRAME, URHO3D_HANDLER(MyApp, HandleBeginFrame));
@@ -206,6 +239,10 @@ public:
 		{
 			GetSubsystem<Input>()->SetMouseVisible(!GetSubsystem<Input>()->IsMouseVisible());
 			GetSubsystem<Input>()->SetMouseGrabbed(!GetSubsystem<Input>()->IsMouseGrabbed());
+		}
+		if (key == KEY_I){
+			graphNum++;
+			graphNum = graphNum % 5;
 		}
     }
 
@@ -297,7 +334,27 @@ public:
                 for (int x = 0; x < res; x++, i++)
                 {
                 	float u = (x + 0.5f) * step - 1.0f;
-                        grid[i]->SetPosition(Ripple(u, v, t));
+			 Vector3 nah(0,0,0);
+                         switch(graphNum){
+				case 0:
+                                     nah = MultiSine2DFunction(u,v,t);
+                                     break;
+                                case 1:
+                                     nah = sphere(u,v,t);
+                                     break;
+                                case 2:
+                                     nah = Sine(u,v,t);
+                                     break;
+                                case 3:
+                                     nah = Torus(u,v,t);
+                                     break;
+                                case 4:
+                                     nah = Ripple(u,v,t);
+				     break;
+				default:
+				     break;
+			};
+                        grid[i]->SetPosition(nah);
                 }
         }
     }
