@@ -5,10 +5,10 @@
 using namespace Urho3D;
 
 CameraAngle::CameraAngle(int id, Vector3 position, Vector3 direction, int roll){
-    this->id = id;
-    this->position = position;
-    this->direction = direction;
-    this->roll = roll;
+    this->id = id;                  ///id: camera index
+    this->position = position;      ///3D vector position
+    this->direction = direction;    ///3D vector direction camera points toward
+    this->roll = roll;              ///roll of the camera
 }
 
 int CameraAngle::getId(){

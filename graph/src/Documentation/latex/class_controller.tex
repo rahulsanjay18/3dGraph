@@ -1,0 +1,156 @@
+\hypertarget{class_controller}{}\section{Controller Class Reference}
+\label{class_controller}\index{Controller@{Controller}}
+Inheritance diagram for Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_controller}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_controller_a1080d606df3b1123894b164ee0d43a5b}\label{class_controller_a1080d606df3b1123894b164ee0d43a5b}} 
+{\bfseries Controller} (Context $\ast$context)
+\item 
+void \mbox{\hyperlink{class_controller_a94c58a56f3af5ab155ae425494ba996a}{Subscribe\+Events}} ()
+\item 
+virtual void \mbox{\hyperlink{class_controller_a3ca9504f8805a9b8cd6084058158a461}{Setup}} ()
+\item 
+virtual void \mbox{\hyperlink{class_controller_a27d79f6e08039a2cfb5da6b4d4da6aaf}{Start}} ()
+\item 
+virtual void \mbox{\hyperlink{class_controller_ad026d93eec698b8333bf9ad138f36007}{Stop}} ()
+\item 
+void \mbox{\hyperlink{class_controller_acb569db1410bcfc1119fbf971206d706}{Handle\+Begin\+Frame}} (String\+Hash event\+Type, Variant\+Map \&event\+Data)
+\item 
+void \mbox{\hyperlink{class_controller_ab92e60b1b80d19b872182bb82bff4b39}{Handle\+Key\+Down}} (String\+Hash event\+Type, Variant\+Map \&event\+Data)
+\item 
+void \mbox{\hyperlink{class_controller_a23b30ec90fc2a9ba09c046723089f1c4}{Handle\+Close\+Pressed}} (String\+Hash event\+Type, Variant\+Map \&event\+Data)
+\item 
+void \mbox{\hyperlink{class_controller_a7133c51cf9ea02a697febada2e545cc9}{Handle\+Update}} (String\+Hash event\+Type, Variant\+Map \&event\+Data)
+\item 
+\mbox{\Hypertarget{class_controller_a04ce84e2190c2cab7426b2070a27bf1b}\label{class_controller_a04ce84e2190c2cab7426b2070a27bf1b}} 
+void {\bfseries Handle\+Post\+Update} (String\+Hash event\+Type, Variant\+Map \&event\+Data)
+\item 
+\mbox{\Hypertarget{class_controller_a827d71fa1f77cd029df6a9ead531b792}\label{class_controller_a827d71fa1f77cd029df6a9ead531b792}} 
+void {\bfseries Handle\+Render\+Update} (String\+Hash event\+Type, Variant\+Map \&event\+Data)
+\item 
+\mbox{\Hypertarget{class_controller_a6871b94adcee0b56b483dbe21ef9d671}\label{class_controller_a6871b94adcee0b56b483dbe21ef9d671}} 
+void {\bfseries Handle\+Post\+Render\+Update} (String\+Hash event\+Type, Variant\+Map \&event\+Data)
+\item 
+\mbox{\Hypertarget{class_controller_a300138399222c7a35feffc551fd7f1b4}\label{class_controller_a300138399222c7a35feffc551fd7f1b4}} 
+void {\bfseries Handle\+End\+Frame} (String\+Hash event\+Type, Variant\+Map \&event\+Data)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_controller_ae14d8e82417913dd17c7ff3f720549ec}\label{class_controller_ae14d8e82417913dd17c7ff3f720549ec}} 
+\mbox{\hyperlink{class_abstract_view}{Abstract\+View}} $\ast$ {\bfseries view}
+\item 
+\mbox{\Hypertarget{class_controller_aaa6302290d4d38637753c5ea36b50237}\label{class_controller_aaa6302290d4d38637753c5ea36b50237}} 
+int {\bfseries framecount\+\_\+}
+\item 
+\mbox{\Hypertarget{class_controller_a26444f85b6b342bf0d97d9400f8d8188}\label{class_controller_a26444f85b6b342bf0d97d9400f8d8188}} 
+float {\bfseries time\+\_\+} =0
+\item 
+\mbox{\Hypertarget{class_controller_ab9c8ed37f7aa33602d8beed041c0939b}\label{class_controller_ab9c8ed37f7aa33602d8beed041c0939b}} 
+Scene $\ast$ {\bfseries scene\+\_\+}
+\item 
+\mbox{\Hypertarget{class_controller_adcf58447ed5699154afedde1a7875115}\label{class_controller_adcf58447ed5699154afedde1a7875115}} 
+Node $\ast$ {\bfseries grid} \mbox{[}res $\ast$res\mbox{]}
+\item 
+\mbox{\Hypertarget{class_controller_a148c3c714eafc257511ad211c0f568f0}\label{class_controller_a148c3c714eafc257511ad211c0f568f0}} 
+Static\+Model $\ast$ {\bfseries surface} \mbox{[}res $\ast$res\mbox{]}
+\item 
+\mbox{\Hypertarget{class_controller_a7963dd0a75aaf12202361b146698535f}\label{class_controller_a7963dd0a75aaf12202361b146698535f}} 
+Resource\+Cache $\ast$ {\bfseries cache}
+\item 
+\mbox{\Hypertarget{class_controller_a79e8b044947fbaec8a5e1c260e9e8b64}\label{class_controller_a79e8b044947fbaec8a5e1c260e9e8b64}} 
+Renderer $\ast$ {\bfseries renderer}
+\item 
+\mbox{\Hypertarget{class_controller_afe844529c8794b1f37fff138f33d6195}\label{class_controller_afe844529c8794b1f37fff138f33d6195}} 
+int $\ast$$\ast$ {\bfseries a}
+\item 
+\mbox{\Hypertarget{class_controller_ac07b2ea720f1d3ae1addd69d2ae1357c}\label{class_controller_ac07b2ea720f1d3ae1addd69d2ae1357c}} 
+\mbox{\hyperlink{class_rotation_direction}{Rotation\+Direction}} $\ast$ {\bfseries Q}
+\item 
+\mbox{\Hypertarget{class_controller_a076566f1216695d7143048c8778b7749}\label{class_controller_a076566f1216695d7143048c8778b7749}} 
+\mbox{\hyperlink{class_rotation_direction}{Rotation\+Direction}} $\ast$ {\bfseries E}
+\item 
+\mbox{\Hypertarget{class_controller_a7e6838a13bf186fa14485b399eecb614}\label{class_controller_a7e6838a13bf186fa14485b399eecb614}} 
+\mbox{\hyperlink{class_rotation_direction}{Rotation\+Direction}} $\ast$ {\bfseries W}
+\item 
+\mbox{\Hypertarget{class_controller_a169f2d00fd547debc3033ef82dc8a183}\label{class_controller_a169f2d00fd547debc3033ef82dc8a183}} 
+\mbox{\hyperlink{class_rotation_direction}{Rotation\+Direction}} $\ast$ {\bfseries A}
+\item 
+\mbox{\Hypertarget{class_controller_a461407c3ba6726fed8aab65c7cd50aec}\label{class_controller_a461407c3ba6726fed8aab65c7cd50aec}} 
+\mbox{\hyperlink{class_rotation_direction}{Rotation\+Direction}} $\ast$ {\bfseries S}
+\item 
+\mbox{\Hypertarget{class_controller_ae131e8db72efe7a883ff795ba8d7339f}\label{class_controller_ae131e8db72efe7a883ff795ba8d7339f}} 
+\mbox{\hyperlink{class_rotation_direction}{Rotation\+Direction}} $\ast$ {\bfseries D}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_controller_ae9ce49fe7e0fb0124f4114b63f78c7a5}\label{class_controller_ae9ce49fe7e0fb0124f4114b63f78c7a5}} 
+static const int {\bfseries res} = 100
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_controller_acb569db1410bcfc1119fbf971206d706}\label{class_controller_acb569db1410bcfc1119fbf971206d706}} 
+\index{Controller@{Controller}!HandleBeginFrame@{HandleBeginFrame}}
+\index{HandleBeginFrame@{HandleBeginFrame}!Controller@{Controller}}
+\subsubsection{\texorpdfstring{HandleBeginFrame()}{HandleBeginFrame()}}
+{\footnotesize\ttfamily void Controller\+::\+Handle\+Begin\+Frame (\begin{DoxyParamCaption}\item[{String\+Hash}]{event\+Type,  }\item[{Variant\+Map \&}]{event\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Every frame\textquotesingle{}s life must begin somewhere. Here it is. \mbox{\Hypertarget{class_controller_a23b30ec90fc2a9ba09c046723089f1c4}\label{class_controller_a23b30ec90fc2a9ba09c046723089f1c4}} 
+\index{Controller@{Controller}!HandleClosePressed@{HandleClosePressed}}
+\index{HandleClosePressed@{HandleClosePressed}!Controller@{Controller}}
+\subsubsection{\texorpdfstring{HandleClosePressed()}{HandleClosePressed()}}
+{\footnotesize\ttfamily void Controller\+::\+Handle\+Close\+Pressed (\begin{DoxyParamCaption}\item[{String\+Hash}]{event\+Type,  }\item[{Variant\+Map \&}]{event\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+You can get these events from when ever the user interacts with the UI. \mbox{\Hypertarget{class_controller_ab92e60b1b80d19b872182bb82bff4b39}\label{class_controller_ab92e60b1b80d19b872182bb82bff4b39}} 
+\index{Controller@{Controller}!HandleKeyDown@{HandleKeyDown}}
+\index{HandleKeyDown@{HandleKeyDown}!Controller@{Controller}}
+\subsubsection{\texorpdfstring{HandleKeyDown()}{HandleKeyDown()}}
+{\footnotesize\ttfamily void Controller\+::\+Handle\+Key\+Down (\begin{DoxyParamCaption}\item[{String\+Hash}]{event\+Type,  }\item[{Variant\+Map \&}]{event\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Input from keyboard is handled here. I\textquotesingle{}m assuming that Input, if available, will be handled before E\+\_\+\+U\+P\+D\+A\+TE. \mbox{\Hypertarget{class_controller_a7133c51cf9ea02a697febada2e545cc9}\label{class_controller_a7133c51cf9ea02a697febada2e545cc9}} 
+\index{Controller@{Controller}!HandleUpdate@{HandleUpdate}}
+\index{HandleUpdate@{HandleUpdate}!Controller@{Controller}}
+\subsubsection{\texorpdfstring{HandleUpdate()}{HandleUpdate()}}
+{\footnotesize\ttfamily void Controller\+::\+Handle\+Update (\begin{DoxyParamCaption}\item[{String\+Hash}]{event\+Type,  }\item[{Variant\+Map \&}]{event\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Your non-\/rendering logic should be handled here. This could be moving objects, checking collisions and reaction, etc. \mbox{\Hypertarget{class_controller_a3ca9504f8805a9b8cd6084058158a461}\label{class_controller_a3ca9504f8805a9b8cd6084058158a461}} 
+\index{Controller@{Controller}!Setup@{Setup}}
+\index{Setup@{Setup}!Controller@{Controller}}
+\subsubsection{\texorpdfstring{Setup()}{Setup()}}
+{\footnotesize\ttfamily virtual void Controller\+::\+Setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Setup function runs before the Start function Sets up window settings; window size 1280 x 720 pixels \mbox{\Hypertarget{class_controller_a27d79f6e08039a2cfb5da6b4d4da6aaf}\label{class_controller_a27d79f6e08039a2cfb5da6b4d4da6aaf}} 
+\index{Controller@{Controller}!Start@{Start}}
+\index{Start@{Start}!Controller@{Controller}}
+\subsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily virtual void Controller\+::\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Start initializes every object needed such as the view and model object, and also the cubes used to graph the 3D functions Initialize the 4 cameras and renderers
+
+Initialize the singleton model object
+
+give coordinates to each cube using a 3d function from the model function\mbox{\Hypertarget{class_controller_ad026d93eec698b8333bf9ad138f36007}\label{class_controller_ad026d93eec698b8333bf9ad138f36007}} 
+\index{Controller@{Controller}!Stop@{Stop}}
+\index{Stop@{Stop}!Controller@{Controller}}
+\subsubsection{\texorpdfstring{Stop()}{Stop()}}
+{\footnotesize\ttfamily virtual void Controller\+::\+Stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Add things to do before halting the program when user closes it. \mbox{\Hypertarget{class_controller_a94c58a56f3af5ab155ae425494ba996a}\label{class_controller_a94c58a56f3af5ab155ae425494ba996a}} 
+\index{Controller@{Controller}!SubscribeEvents@{SubscribeEvents}}
+\index{SubscribeEvents@{SubscribeEvents}!Controller@{Controller}}
+\subsubsection{\texorpdfstring{SubscribeEvents()}{SubscribeEvents()}}
+{\footnotesize\ttfamily void Controller\+::\+Subscribe\+Events (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Subscribes all functions regarding the updating of the application and rendering, frame beginning and ending, and mouse and keyboard inputs 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/fengm/github/3d\+Graph/graph/src/controller/Controller.\+cpp\end{DoxyCompactItemize}

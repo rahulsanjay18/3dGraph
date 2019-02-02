@@ -7,6 +7,8 @@
 using namespace Urho3D;
 using namespace MVC;
 
+Model* Model::instance;
+
 std::function<Vector3(float,float,float)> Model::getFunction(){
     return graphFunction;
 }

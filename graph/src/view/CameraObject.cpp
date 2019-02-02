@@ -1,6 +1,7 @@
 #include "CameraObject.h"
 #include <Urho3D/Scene/Scene.h>
 #include <Urho3D/Graphics/Renderer.h>
+#include <Urho3D/Math/Vector3.h>
 
 using namespace Urho3D;
 
@@ -41,4 +42,20 @@ void CameraObject::initialize(){
 
 CameraObject::~CameraObject(){
     delete viewport;
+}
+
+void CameraObject::rotation(int x, int y, int z, int id){
+    cameraNode->SetPosition(-(Quaternion(x,y,z) * -cameraNode->GetWorldPosition()));
+    cameraNode->LookAt(Vector3(0,0,0));
+    if (id != 0){
+        cameraNode->Roll(id * 90);
+    }
+}
+
+void CameraObject::zoom(Vector3 v, float factor, int id){
+    cameraNode->Translate(v*factor);
+    cameraNode->LookAt(Vector3(0,0,0));
+    if (id != 0){
+        cameraNode->Roll(id * 90);
+    }
 }

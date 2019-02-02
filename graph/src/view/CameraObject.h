@@ -11,19 +11,20 @@
 #include <Urho3D/Scene/Node.h>
 #include <Urho3D/Math/Rect.h>
 #include <Urho3D/Container/Ptr.h>
+#include <Urho3D/Math/Vector3.h>
 
 using namespace Urho3D;
 
 class CameraObject{
     private:
-        CameraAngle* cameraAngle;
-		SharedPtr<Node> cameraNode;
-		Camera* camera;
-		SharedPtr<Viewport> viewport;
-		IntRect* rect;
-		static Renderer* renderer;
-		static Scene* scene_;
-        void setUpCamera();
+        CameraAngle* cameraAngle;       ///Contains values for the camera angle
+		SharedPtr<Node> cameraNode;     ///Node to a camera
+		Camera* camera;                 ///Camera itself
+		SharedPtr<Viewport> viewport;   ///Viewport which to send the images to
+		IntRect* rect;                  ///Rectangular frame object
+		static Renderer* renderer;      ///Renderer
+		static Scene* scene_;           ///Scene
+        void setUpCamera();             ///Set up functions for camera and viewport
         void setUpViewPort();
     public:
         static void setRenderer(Renderer*);
@@ -32,5 +33,7 @@ class CameraObject{
         ~CameraObject();
         CameraObject(IntRect*, CameraAngle*);
         void initialize();
+        void rotation(int, int, int, int);
+        void zoom(Vector3, float, int);
 };
 #endif // CAMERAOBJECT_H_INCLUDED

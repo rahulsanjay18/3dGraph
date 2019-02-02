@@ -1,8 +1,10 @@
 #include "GrapherView.h"
 #include "AbstractView.h"
+#include "RotationDirection.h"
 #include <Urho3D/Core/Context.h>
 #include <Urho3D/Graphics/Renderer.h>
 #include <Urho3D/Scene/Node.h>
+#include <Urho3D/Math/Vector3.h>
 #include <iostream> //todo: delete later
 
 using namespace Urho3D;
@@ -74,4 +76,18 @@ GrapherView::~GrapherView(){
 	delete[] cameraObjects;
 	delete[] rect;
 	//delete lightNode;
+}
+
+void GrapherView::rotation(RotationDirection direction){
+    for (int i = 0; i < 4; i++){
+        cameraObjects[i]->rotation(direction.getElement(i, 0),
+                                   direction.getElement(i, 1),
+                                   direction.getElement(i, 2), i);
+    }
+}
+
+void GrapherView::zoom(Vector3 direction, float factor){
+    for (int i = 0; i < 4; i++){
+        cameraObjects[i]->zoom(direction, factor, i);
+    }
 }

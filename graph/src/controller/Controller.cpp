@@ -30,35 +30,55 @@
 #include <Urho3D/Graphics/Skybox.h>
 
 
-#include "../model/Functions.h"
 #include "../view/CameraAngle.h"
 #include "../view/CameraObject.h"
 #include "../view/AbstractView.h"
 #include "../view/GrapherView.h"
+#include "../view/RotationDirection.h"
 #include "../model/Model.h"
-#include "GraphGenerator.h"
+
+#include <functional>
 
 using namespace Urho3D;
 
 class Controller : public Application
 {
 public:
-    AbstractView* view;
+    AbstractView* view;             //The View object from the MVC architecture; Handles the 4 cameras and renderers
     int framecount_;
-    float time_=0;
+    float time_=0;                  //Time variable
     //SharedPtr<Text> text_;
-    Scene* scene_;
+    Scene* scene_;                  //The object that stores the background scene of the program's environment
     //SharedPtr<Node> boxNode_;
-	static const int res = 100;
-	Node* grid[res*res];
-	StaticModel* surface[res*res];
-	ResourceCache* cache;
-	Renderer* renderer;
+	static const int res = 100;     //the number of cubes on one side of the square domain D
+	Node* grid[res*res];            //The grid of points to use to graph the 3D image on the center
+	StaticModel* surface[res*res];  //the object storing the surface of each cube
+	ResourceCache* cache;           //Cache object
+	Renderer* renderer;             //Object for rendering the image through the view
+	int** a;
+	RotationDirection *Q, *E, *W, *A, *S, *D;
 
     Controller(Context * context) : Application(context),framecount_(0),time_(0)
     {
+        int q[4][3] = {{0,0,1},{0,0,1},{0,0,1},{0,0,1}};
+        int e[4][3] = {{0,0,-1},{0,0,-1},{0,0,-1},{0,0,-1}};
+        int w[4][3] = {{1,0,0},{0,0,1},{1,0,0},{0,0,1}};
+        int a[4][3] = {{0,1,0},{0,1,0},{0,1,0},{0,1,0}};
+        int s[4][3] = {{-1,0,0},{0,0,-1},{-1,0,0},{0,0,-1}};
+        int d[4][3] = {{0,-1,0},{0,-1,0},{0,-1,0},{0,-1,0}};
+        Q = new RotationDirection("Q", q);
+        E = new RotationDirection("E", e);
+        W = new RotationDirection("W", w);
+        A = new RotationDirection("A", a);
+        S = new RotationDirection("S", s);
+        D = new RotationDirection("D", d);
     }
 
+    /**
+     *  Subscribes all functions regarding the updating of the
+     *  application and rendering, frame beginning and ending,
+     *  and mouse and keyboard inputs
+     */
     void SubscribeEvents(){
         SubscribeToEvent(E_BEGINFRAME, URHO3D_HANDLER(Controller, HandleBeginFrame));
 		SubscribeToEvent(E_KEYDOWN, URHO3D_HANDLER(Controller, HandleKeyDown));
@@ -69,6 +89,11 @@ public:
 		SubscribeToEvent(E_ENDFRAME, URHO3D_HANDLER(Controller, HandleEndFrame));
     }
 
+    /**
+     * Setup function runs before the Start function
+     * Sets up window settings; window size 1280 x 720 pixels
+     *
+     */
     virtual void Setup()
     {
         engineParameters_["FullScreen"]=false;
@@ -77,6 +102,11 @@ public:
         engineParameters_["WindowResizable"]=true;
     }
 
+    /**
+     * Start initializes every object needed such as the view and model object,
+     * and also the cubes used to graph the 3D functions
+     *
+     */
 	virtual void Start()
 	{
         renderer = GetSubsystem<Renderer>();
@@ -111,12 +141,14 @@ public:
 			group->AddInstanceNode(grid[i]);
 		}
 
+		///Initialize the 4 cameras and renderers
 		view = new GrapherView(renderer, scene_);
 		view->display();
 
-        ///Move to model or another part in the controller
+        ///Initialize the singleton model object
         MVC::Model::initInstance();
-
+	MVC::Model::getInstance()->setFunction("Torus");
+        ///give coordinates to each cube using a 3d function from the model function
 		float step = 2.0f / res;
 		float t = time_;
 		for (int z = 0, i = 0; z < res; z++)
@@ -125,17 +157,30 @@ public:
 			for (int x = 0; x < res; x++, i++)
 			{
 				float u = (x + 0.5f) * step - 1.0f;
+				//Model* p = MVC::Model::getInstance();
+				//std::function<Vector3(float,float,float)  f = p->getFunction();
+				//Vector3 pos = f(u,v,t);
 				grid[i]->SetPosition(MVC::Model::getInstance()->getFunction()(u, v, t));
+				//grid[i]->SetPosition(pos);
 			}
 		}
         SubscribeEvents();
     }
 
+    /**
+     * Add things to do before halting the program when user closes it.
+     */
     virtual void Stop()
     {
 		//Avoid memory leaks by explicitly deleting pointers
 		MVC::Model::deleteInstance();
 		delete view;
+		delete Q;
+		delete E;
+		delete W;
+		delete A;
+		delete S;
+		delete D;
     }
 
     /**
@@ -189,17 +234,24 @@ public:
         Input* input=GetSubsystem<Input>();
         //if(input->GetQualifierDown(1))  // 1 is shift, 2 is ctrl, 4 is alt
         MOVE_SPEED/=10;
+		if(input->GetKeyDown(KEY_Q)){
+			view->zoom(Vector3(0,0,1), MOVE_SPEED*timeStep);
+		}
+		if(input->GetKeyDown(KEY_E)){
+            view->zoom(Vector3(0,0,-1), MOVE_SPEED*timeStep);
+		}
         if(input->GetKeyDown(KEY_W)){
-            //cameraNodes[0]->Translate(Vector3(0,0, 1)*MOVE_SPEED*timeStep);
-            //cameraNodes[1]->Translate(Vector3(0,0, 1)*MOVE_SPEED*timeStep);
-            //cameraNodes[2]->Translate(Vector3(0,0, 1)*MOVE_SPEED*timeStep);
-            //cameraNodes[3]->Translate(Vector3(0,0, 1)*MOVE_SPEED*timeStep);
+            view->rotation(*W);
         }
-	if(input->GetKeyDown(KEY_S)){
-            //cameraNodes[0]->Translate(Vector3(0,0, -1)*MOVE_SPEED*timeStep);
-            //cameraNodes[1]->Translate(Vector3(0,0, -1)*MOVE_SPEED*timeStep);
-            //cameraNodes[2]->Translate(Vector3(0,0, -1)*MOVE_SPEED*timeStep);
-            //cameraNodes[3]->Translate(Vector3(0,0, -1)*MOVE_SPEED*timeStep);
+		if(input->GetKeyDown(KEY_S)){
+		    view->rotation(*S);
+		}
+		if(input->GetKeyDown(KEY_A)){
+		    view->rotation(*A);
+		}
+		if(input->GetKeyDown(KEY_D)){
+		    view->rotation(*D);
+		}
 	}
 	/*
 	float step = 2.0f / res;
@@ -216,8 +268,6 @@ public:
        // if(input->GetKeyDown(KEY_UP)){
 
 //	}*/
-
-    }
 
     void HandlePostUpdate(StringHash eventType,VariantMap& eventData)
     {

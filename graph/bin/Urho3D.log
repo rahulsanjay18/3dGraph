@@ -1,3 +1,4 @@
+
 [Thu Jan 31 11:55:33 2019] INFO: Opened log file Urho3D.log
 [Thu Jan 31 11:55:33 2019] INFO: Created 3 worker threads
 [Thu Jan 31 11:55:33 2019] INFO: Added resource path /home/rahul/Documents/3dGraph/graph/bin/Data/
@@ -8,3 +9,4 @@
 [Thu Jan 31 11:55:34 2019] INFO: Initialized renderer
 [Thu Jan 31 11:55:34 2019] INFO: Set audio mode 44100 Hz stereo interpolated
 [Thu Jan 31 11:55:34 2019] INFO: Initialized engine
+
