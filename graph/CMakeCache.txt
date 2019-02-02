@@ -182,8 +182,8 @@ CMAKE_STRIP:FILEPATH=/usr/bin/strip
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
-//Enable 64-bit build, the value is auto-discovered based on the
-// found Urho3D library
+//Enable 64-bit build, the default is set based on the native ABI
+// of the chosen compiler toolchain
 URHO3D_64BIT:BOOL=1
 
 //Enable AngelScript scripting support

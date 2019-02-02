@@ -9,7 +9,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
   "CMake/Modules/CheckCompilerToolchain.cmake"
   "CMake/Modules/CheckHost.cmake"
-  "CMake/Modules/CheckUrhoLibrary.cpp"
   "CMake/Modules/FindUrho3D.cmake"
   "CMake/Modules/GenerateExportHeader.cmake"
   "CMake/Modules/UrhoCommon.cmake"

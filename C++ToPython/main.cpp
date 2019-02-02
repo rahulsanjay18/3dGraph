@@ -15,7 +15,7 @@ int main(){
 	
 	PyObject* pyObject = invokeFunc(argc, types, argv);
 	
-	printf("Result of call: %ld\n", PyBytes_AsString(pyObject));
+	printf("Result of call: %s\n", PyBytes_AsString(pyObject));
 	
 	return 0;
 	

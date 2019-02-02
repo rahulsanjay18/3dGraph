@@ -4,6 +4,7 @@
 CMakeFiles/UrhoGrapher.dir/main.cpp.o
  /home/rahul/Documents/3dGraph/graph/GraphGenerator.h
  /home/rahul/Documents/3dGraph/graph/main.cpp
+ /home/rahul/Documents/3dGraph/graph/math.h
  /home/rahul/Documents/Urho3D-1.7/include/Urho3D/Container/Allocator.h
  /home/rahul/Documents/Urho3D-1.7/include/Urho3D/Container/ArrayPtr.h
  /home/rahul/Documents/Urho3D-1.7/include/Urho3D/Container/Hash.h
@@ -124,3 +125,5 @@ CMakeFiles/UrhoGrapher.dir/main.cpp.o
  /home/rahul/Documents/Urho3D-1.7/include/Urho3D/UI/UIElement.h
  /home/rahul/Documents/Urho3D-1.7/include/Urho3D/UI/UIEvents.h
  /home/rahul/Documents/Urho3D-1.7/include/Urho3D/Urho3D.h
+CMakeFiles/UrhoGrapher.dir/math.cpp.o
+ /home/rahul/Documents/3dGraph/graph/math.cpp

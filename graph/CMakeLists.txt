@@ -1,9 +1,12 @@
+
+
 # Set project name
 project (UrhoGrapher)
 # Define target name
 set (TARGET_NAME UrhoGrapher)
 
 ######################################
+
 
 # Set CMake minimum version and CMake policy required by Urho3D-CMake-common module
 if (WIN32)
@@ -29,7 +32,16 @@ endif ()
 set (CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/CMake/Modules)
 # Include Urho3D Cmake common module
 include (UrhoCommon)
+INCLUDE_DIRECTORIES(/usr/include/octave)
+# set the path to the library folder
+link_directories(/usr/lib/x86_64-linux-gnu)
+
+
 # Define source files
 define_source_files ()
+
 # Setup target with resource copying
 setup_main_executable ()
+
+# link the libraries to the executable
+target_link_libraries (UrhoGrapher octave octinterp)

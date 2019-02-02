@@ -1,10 +1,10 @@
-[Thu Dec 20 00:17:18 2018] INFO: Opened log file Urho3D.log
-[Thu Dec 20 00:17:18 2018] INFO: Created 1 worker thread
-[Thu Dec 20 00:17:18 2018] INFO: Added resource path /home/rahul/Documents/3dGraph/graph/bin/Data/
-[Thu Dec 20 00:17:18 2018] INFO: Added resource path /home/rahul/Documents/3dGraph/graph/bin/CoreData/
-[Thu Dec 20 00:17:18 2018] INFO: Set screen mode 1280x720 windowed monitor 0 resizable
-[Thu Dec 20 00:17:18 2018] INFO: Initialized input
-[Thu Dec 20 00:17:18 2018] INFO: Initialized user interface
-[Thu Dec 20 00:17:18 2018] INFO: Initialized renderer
-[Thu Dec 20 00:17:18 2018] INFO: Set audio mode 44100 Hz stereo interpolated
-[Thu Dec 20 00:17:18 2018] INFO: Initialized engine
+[Sat Feb  2 00:05:14 2019] INFO: Opened log file Urho3D.log
+[Sat Feb  2 00:05:14 2019] INFO: Created 3 worker threads
+[Sat Feb  2 00:05:14 2019] INFO: Added resource path /home/rahul/Documents/3dGraph/graph/bin/Data/
+[Sat Feb  2 00:05:14 2019] INFO: Added resource path /home/rahul/Documents/3dGraph/graph/bin/CoreData/
+[Sat Feb  2 00:05:14 2019] INFO: Set screen mode 1280x720 windowed monitor 0 resizable
+[Sat Feb  2 00:05:14 2019] INFO: Initialized input
+[Sat Feb  2 00:05:14 2019] INFO: Initialized user interface
+[Sat Feb  2 00:05:14 2019] INFO: Initialized renderer
+[Sat Feb  2 00:05:14 2019] INFO: Set audio mode 44100 Hz stereo interpolated
+[Sat Feb  2 00:05:14 2019] INFO: Initialized engine

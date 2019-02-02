@@ -81,18 +81,44 @@ CMakeFiles/UrhoGrapher.dir/main.cpp.o.provides: CMakeFiles/UrhoGrapher.dir/main.
 CMakeFiles/UrhoGrapher.dir/main.cpp.o.provides.build: CMakeFiles/UrhoGrapher.dir/main.cpp.o
 
 
+CMakeFiles/UrhoGrapher.dir/math.cpp.o: CMakeFiles/UrhoGrapher.dir/flags.make
+CMakeFiles/UrhoGrapher.dir/math.cpp.o: math.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rahul/Documents/3dGraph/graph/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/UrhoGrapher.dir/math.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/UrhoGrapher.dir/math.cpp.o -c /home/rahul/Documents/3dGraph/graph/math.cpp
+
+CMakeFiles/UrhoGrapher.dir/math.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/UrhoGrapher.dir/math.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rahul/Documents/3dGraph/graph/math.cpp > CMakeFiles/UrhoGrapher.dir/math.cpp.i
+
+CMakeFiles/UrhoGrapher.dir/math.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/UrhoGrapher.dir/math.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rahul/Documents/3dGraph/graph/math.cpp -o CMakeFiles/UrhoGrapher.dir/math.cpp.s
+
+CMakeFiles/UrhoGrapher.dir/math.cpp.o.requires:
+
+.PHONY : CMakeFiles/UrhoGrapher.dir/math.cpp.o.requires
+
+CMakeFiles/UrhoGrapher.dir/math.cpp.o.provides: CMakeFiles/UrhoGrapher.dir/math.cpp.o.requires
+	$(MAKE) -f CMakeFiles/UrhoGrapher.dir/build.make CMakeFiles/UrhoGrapher.dir/math.cpp.o.provides.build
+.PHONY : CMakeFiles/UrhoGrapher.dir/math.cpp.o.provides
+
+CMakeFiles/UrhoGrapher.dir/math.cpp.o.provides.build: CMakeFiles/UrhoGrapher.dir/math.cpp.o
+
+
 # Object files for target UrhoGrapher
 UrhoGrapher_OBJECTS = \
-"CMakeFiles/UrhoGrapher.dir/main.cpp.o"
+"CMakeFiles/UrhoGrapher.dir/main.cpp.o" \
+"CMakeFiles/UrhoGrapher.dir/math.cpp.o"
 
 # External object files for target UrhoGrapher
 UrhoGrapher_EXTERNAL_OBJECTS =
 
 bin/UrhoGrapher: CMakeFiles/UrhoGrapher.dir/main.cpp.o
+bin/UrhoGrapher: CMakeFiles/UrhoGrapher.dir/math.cpp.o
 bin/UrhoGrapher: CMakeFiles/UrhoGrapher.dir/build.make
 bin/UrhoGrapher: /home/rahul/Documents/Urho3D-1.7/lib/libUrho3D.a
 bin/UrhoGrapher: CMakeFiles/UrhoGrapher.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/rahul/Documents/3dGraph/graph/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable bin/UrhoGrapher"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/rahul/Documents/3dGraph/graph/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable bin/UrhoGrapher"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/UrhoGrapher.dir/link.txt --verbose=$(VERBOSE)
 	/usr/bin/strip /home/rahul/Documents/3dGraph/graph/bin/UrhoGrapher
 
@@ -102,6 +128,7 @@ CMakeFiles/UrhoGrapher.dir/build: bin/UrhoGrapher
 .PHONY : CMakeFiles/UrhoGrapher.dir/build
 
 CMakeFiles/UrhoGrapher.dir/requires: CMakeFiles/UrhoGrapher.dir/main.cpp.o.requires
+CMakeFiles/UrhoGrapher.dir/requires: CMakeFiles/UrhoGrapher.dir/math.cpp.o.requires
 
 .PHONY : CMakeFiles/UrhoGrapher.dir/requires
 

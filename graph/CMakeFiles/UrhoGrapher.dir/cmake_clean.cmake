@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/UrhoGrapher.dir/main.cpp.o"
+  "CMakeFiles/UrhoGrapher.dir/math.cpp.o"
   "bin/UrhoGrapher.pdb"
   "bin/UrhoGrapher"
 )

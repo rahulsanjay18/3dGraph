@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/rahul/Documents/3dGraph/graph/main.cpp" "/home/rahul/Documents/3dGraph/graph/CMakeFiles/UrhoGrapher.dir/main.cpp.o"
+  "/home/rahul/Documents/3dGraph/graph/math.cpp" "/home/rahul/Documents/3dGraph/graph/CMakeFiles/UrhoGrapher.dir/math.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -30,6 +31,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/home/rahul/Documents/Urho3D-1.7/include/Urho3D/ThirdParty"
   "/home/rahul/Documents/Urho3D-1.7/include/Urho3D/ThirdParty/Bullet"
   "/home/rahul/Documents/Urho3D-1.7/include/Urho3D/ThirdParty/Lua"
+  "/usr/include/octave"
   )
 
 # Targets to which this target links.
