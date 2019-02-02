@@ -1,11 +1,14 @@
 #Output and generated files
-./graph/CMakeCache.txt
-./graph/Makefile
-./graph/bin/UrhoGrapher
-./graph/CMakeFiles/
-./graph/Urho3D.log
-./graph/bin/Urho3D.log
-./graph/bin/out
+graph/CMakeCache.txt
+graph/cmake_generic.bat
+graph/cmake_generic.sh
+graph/cmake_install.cmake
+graph/Makefile
+graph/CMakeFiles/
+graph/Urho3D.log
+graph/bin/UrhoGrapher
+graph/bin/out
+graph/bin/Urho3D.log
 *.cbp
 *.depend
 *.layout
