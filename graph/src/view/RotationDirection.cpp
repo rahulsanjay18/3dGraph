@@ -1,7 +1,7 @@
 #include "RotationDirection.h"
 
-RotationDirection::RotationDirection(std::string identification, int q[4][3]){
-    quaternions = q;
+RotationDirection::RotationDirection(std::string identification, int q){
+    quaternion_bits = q;
     id = identification;
 }
 
@@ -10,8 +10,8 @@ RotationDirection::~RotationDirection(){
     delete quaternions;
 }
 
-int RotationDirection::getElement(int r, int c){
-    return quaternions[r][c];
+int RotationDirection::getBits(){
+    return quaternion_bits;
 }
 
 std::string RotationDirection::getId(){
