@@ -1,1 +1,2 @@
-PyObject * invokeFunc(int argc, char *argv[]);
+using namespace std;
+PyObject * invokeFunc(int argc, char* types, string argv[]);

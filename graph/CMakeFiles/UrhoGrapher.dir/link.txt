@@ -1,0 +1,1 @@
+/usr/bin/c++  -mtune=generic  -std=gnu++11 -Wno-invalid-offsetof -march=native -msse3 -pthread -fdiagnostics-color=auto -O3 -DNDEBUG  -rdynamic CMakeFiles/UrhoGrapher.dir/main.cpp.o CMakeFiles/UrhoGrapher.dir/math.cpp.o  -o bin/UrhoGrapher /home/rahul/Documents/Urho3D-1.7/lib/libUrho3D.a -ldl -lm -lrt -lGL -loctave -loctinterp 

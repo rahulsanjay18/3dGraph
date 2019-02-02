@@ -66,7 +66,8 @@ public:
     }
 
 	virtual void Start()
-	{
+	{	
+		cout<<"Dis da rite 1";
 		cache = GetSubsystem<ResourceCache>();
 
 		// Let's use the default style that comes with Urho3D.
