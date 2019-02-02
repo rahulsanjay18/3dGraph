@@ -5,13 +5,13 @@
 
 class RotationDirection{
 private:
-    int quaternion_bits;
-    //int** quaternions;
+    //int quaternion_bits;
+    int** quaternions;
     std::string id;
 public:
     RotationDirection(std::string id, int);
     ~RotationDirection();
-    int getBits();
+    int* getCameraVals(int);
     std::string getId();
 };
 #endif // ROTATIONDIRECTION_H_INCLUDED

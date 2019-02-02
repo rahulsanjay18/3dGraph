@@ -79,15 +79,11 @@ GrapherView::~GrapherView(){
 }
 
 void GrapherView::rotation(RotationDirection direction){
-    int rotationBits = direction.getBits();
     for (int i = 0; i < 4; i++){
-        int subBits = rotationBits >> ((3 - i) * 6);
-        int x = (subBits >> 4) & 3;
-        int y = (subBits >> 2) & 3;
-        int z = subBits & 3;
-        cameraObjects[i]->rotation(x == 3 ? -1 : x,
-                                   y == 3 ? -1 : y,
-                                   z == 3 ? -1 : z);
+        int *values = direction.getCameraVals(i);
+        cameraObjects[i]->rotation(*(values),
+                                   *(values + 1),
+                                   *(values + 2));
     }
 }
 
