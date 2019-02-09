@@ -83,7 +83,7 @@ void GrapherView::rotation(RotationDirection direction){
         int *values = direction.getCameraVals(i);
         cameraObjects[i]->rotation(*(values),
                                    *(values + 1),
-                                   *(values + 2));
+                                   *(values + 2),i);
     }
 }
 
