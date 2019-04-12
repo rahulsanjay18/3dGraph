@@ -68,10 +68,10 @@ public:
         //int d[4][3] = {{0,-1,0},{0,-1,0},{0,-1,0},{0,-1,0}};
         //Q = new RotationDirection("Q", 0x41041);
         //E = new RotationDirection("E", 0xc30c3);
-        W = new RotationDirection("W", 0x401401);
-        A = new RotationDirection("A", 0x104104);
-        S = new RotationDirection("S", 0xc03c03);
-        D = new RotationDirection("D", 0x30c30c);
+        //W = new RotationDirection("W", 0x401401);
+        //A = new RotationDirection("A", 0x104104);
+        //S = new RotationDirection("S", 0xc03c03);
+        //D = new RotationDirection("D", 0x30c30c);
     }
 
     /**
@@ -177,10 +177,10 @@ public:
 		delete view;
 		//delete Q;
 		//delete E;
-		delete W;
-		delete A;
-		delete S;
-		delete D;
+		//delete W;
+		//delete A;
+		//delete S;
+		//delete D;
     }
 
     /**
@@ -235,22 +235,22 @@ public:
         //if(input->GetQualifierDown(1))  // 1 is shift, 2 is ctrl, 4 is alt
         MOVE_SPEED/=10;
 		if(input->GetKeyDown(KEY_Q)){
-			view->zoom(Vector3(0,0,1), MOVE_SPEED*timeStep);
+			//view->zoom(Vector3(0,0,1), MOVE_SPEED*timeStep);
 		}
 		if(input->GetKeyDown(KEY_E)){
-            view->zoom(Vector3(0,0,-1), MOVE_SPEED*timeStep);
+            //view->zoom(Vector3(0,0,-1), MOVE_SPEED*timeStep);
 		}
         if(input->GetKeyDown(KEY_W)){
-            view->rotation(*W);
+            //view->rotation(*W);
         }
 		if(input->GetKeyDown(KEY_S)){
-		    view->rotation(*S);
+		    //view->rotation(*S);
 		}
 		if(input->GetKeyDown(KEY_A)){
-		    view->rotation(*A);
+		    //view->rotation(*A);
 		}
 		if(input->GetKeyDown(KEY_D)){
-		    view->rotation(*D);
+		    //view->rotation(*D);
 		}
 	}
 	/*
